@@ -1,0 +1,43 @@
+.short-about {
+   margin: 25px 0 45px 0;
+   height: 745px;
+
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   > * {
+      margin: 0 10% 0;
+   }
+
+   img {
+      box-shadow: 0px 0px 46px 8px rgba(0, 0, 0, 0.22);
+      margin-right: 8%;
+   }
+
+   .text {
+      max-width: 660px;
+      margin-right: 0;
+
+      > {
+         h2 {
+            font-family: 'Helvetica Neue LT Std';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 40px;
+            line-height: 121.5%;
+            color: #000000;
+         }
+
+         p {
+            font-family: 'Helvetica Neue LT Std';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 175%;
+            color: #000000;
+            margin-bottom: 65px;
+         }
+      }
+   }
+}

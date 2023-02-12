@@ -1,0 +1,44 @@
+header {
+   top: -0.1%;
+   position: sticky;
+   display: flex;
+   flex-direction: row;
+   height: 70px;
+   justify-content: space-between;
+   align-items: center;
+   background-color: #343437;
+   z-index: 100;
+
+   a {
+      text-decoration: none;
+      color: white;
+   }
+
+   > h3 {
+      color: #fff;
+      margin-left: 10%;
+   }
+   .ic {
+      display: block;
+      margin-right: 10%;
+   }
+   .log {
+      display: none;
+   }
+
+   .ic:last-child {
+      margin-right: 10%;
+   }
+
+   h3 > svg {
+      margin: 20px;
+      font-size: 22px;
+   }
+
+   a > svg {
+      font-size: 22px;
+      line-height: 57px;
+      margin: 0 calc(33px / 2) 0;
+      color: #fff;
+   }
+}

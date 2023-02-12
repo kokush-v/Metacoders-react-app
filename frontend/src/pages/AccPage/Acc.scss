@@ -1,0 +1,264 @@
+.chat {
+   max-width: 900px;
+   margin: auto;
+
+   h1 {
+      text-align: center;
+   }
+
+   .logout {
+      color: #fff;
+      background: #343437;
+      transition: all 0.3s linear;
+      width: 100%;
+      font-weight: bold;
+      font-size: 14px;
+      display: block;
+      height: 45px;
+      border-radius: 5px;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 45px;
+      cursor: pointer;
+      border: none;
+      padding: 0.2em 1em;
+
+      &:hover {
+         filter: invert(1);
+      }
+   }
+
+   .messanger {
+      position: relative;
+
+      display: flex;
+      flex-direction: row-reverse;
+      padding: 1em;
+
+      min-width: 800px;
+      height: 550px;
+
+      margin: 0.5em;
+
+      border: 3px solid #3434377b;
+      background-color: #ececec;
+      border-radius: 5px;
+
+      .online {
+         h3 {
+            margin: 0;
+         }
+         overflow-y: auto;
+         border-radius: 0 5px 5px 0;
+         border: solid 1px #6a6a6b;
+         padding: 0.5em 0.5em;
+         font-size: 1.5em;
+
+         margin-left: 0.2em;
+
+         min-width: 175px;
+         height: 100%;
+         width: 100%;
+         background-color: #d1d1d1;
+         text-align: center;
+
+         &::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+         }
+         &::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.1);
+         }
+         &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.2);
+         }
+         &::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.4);
+         }
+         &::-webkit-scrollbar-thumb:active {
+            background: rgba(0, 0, 0, 0.9);
+         }
+
+         .online-user {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            * {
+               margin: 0.1em 0.2em;
+            }
+            p {
+               text-align: left;
+               width: 40%;
+               overflow: hidden;
+               position: relative;
+            }
+            img {
+               width: 2em;
+               height: 2em;
+               border-radius: 50%;
+               border: 1px solid black;
+            }
+            .status {
+               width: 0.6em;
+               height: 0.6em;
+               background-color: #f00;
+
+               border-radius: 50%;
+            }
+         }
+      }
+
+      .modals {
+         position: absolute;
+         z-index: 100;
+         width: 200px;
+         right: 50%;
+         top: 5%;
+         .user-connected {
+            width: fit-content;
+
+            margin: 0.2em auto;
+
+            font-size: 1.25em;
+
+            padding: 0.5em;
+            border-radius: 10px;
+
+            background-color: #d1d1d1;
+
+            transform: translateY(-30%);
+            opacity: 0;
+            transition: all 0.2s ease-in-out;
+         }
+         .user-connected.show {
+            transform: translateY(0%);
+            opacity: 1;
+         }
+      }
+
+      .messages-wrapper {
+         width: 100%;
+         height: 100%;
+         .messages {
+            &::-webkit-scrollbar {
+               width: 6px;
+               height: 6px;
+            }
+            &::-webkit-scrollbar-track {
+               border-radius: 10px;
+               background: rgba(0, 0, 0, 0.1);
+            }
+            &::-webkit-scrollbar-thumb {
+               border-radius: 10px;
+               background: rgba(0, 0, 0, 0.2);
+            }
+            &::-webkit-scrollbar-thumb:hover {
+               background: rgba(0, 0, 0, 0.4);
+            }
+            &::-webkit-scrollbar-thumb:active {
+               background: rgba(0, 0, 0, 0.9);
+            }
+
+            overflow-y: auto;
+
+            height: 90%;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 5px;
+
+            .msg-wrapper {
+               display: flex;
+               flex-direction: column;
+               justify-content: flex-end;
+
+               margin: 1em auto;
+               width: 95%;
+
+               .msg-item {
+                  position: relative;
+                  font-size: 1.2em;
+
+                  align-self: flex-end;
+                  margin: 1em 10px;
+                  margin-right: 10px;
+                  padding: 0.2em 0.8em;
+                  width: fit-content;
+                  height: fit-content;
+                  border: #6a6a6b;
+                  border-radius: 5px;
+                  background-color: #dadada;
+                  .date {
+                     font-size: 0.8em;
+                     top: 20%;
+                     right: 110%;
+                     position: absolute;
+                  }
+                  .message {
+                     max-width: 145px;
+                     word-break: break-word;
+                  }
+                  .name {
+                     bottom: 100%;
+                     right: 10%;
+                     position: absolute;
+                  }
+               }
+               .msg-item.partner {
+                  align-self: flex-start;
+                  background-color: #aaaaaa;
+                  .date {
+                     font-size: 0.8em;
+                     top: 20%;
+                     left: 110%;
+                     position: absolute;
+                  }
+                  .name {
+                     bottom: 100%;
+                     left: 10%;
+                     position: absolute;
+                  }
+               }
+            }
+         }
+         .sender {
+            margin-top: 0.5em;
+            position: relative;
+            bottom: 0;
+            height: fit-content;
+
+            display: flex;
+            justify-content: center;
+            #project {
+               padding: 1em;
+               width: 20%;
+               margin: 0 0.2em;
+            }
+            .msg-text {
+               padding-left: 1em;
+               width: 80%;
+            }
+         }
+      }
+   }
+
+   .logout {
+      margin: auto;
+      width: 200px;
+      text-decoration: none;
+      font-size: 1em;
+   }
+}
+
+@media (max-width: 425px) {
+   .chat {
+      height: 85vh;
+      width: 100% !important;
+      .messanger {
+         width: 100%;
+         height: 100%;
+      }
+   }
+}

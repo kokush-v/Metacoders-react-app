@@ -1,0 +1,46 @@
+.plate {
+   max-width: 1500px;
+   margin: 45px auto;
+   display: flex;
+
+   justify-content: center;
+
+   flex-wrap: wrap;
+
+   .blocks {
+      width: 365px;
+      height: 285px;
+      background: #f5f6fa;
+      border-radius: 6px;
+      margin: 20px;
+
+      > {
+         svg {
+            width: 35px;
+            height: auto;
+            margin: 0 40px;
+            margin-top: 20px;
+            color: #5a5a5a;
+         }
+         h2 {
+            font-family: 'Helvetica Neue LT Std';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 22px;
+
+            color: #000000;
+            padding-left: 44px;
+         }
+
+         p {
+            font-family: 'Helvetica Neue LT Std';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 176%;
+            color: #343437;
+            padding: 0 44px;
+         }
+      }
+   }
+}
