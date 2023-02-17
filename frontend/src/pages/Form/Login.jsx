@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Token } from '../../context/Context';
+import { Navigate } from 'react-router-dom';
 import './Form.scss';
 
 const Login = () => {
@@ -9,7 +9,7 @@ const Login = () => {
 
    const [error, setError] = useState('');
 
-   const { gtoken, setToken } = useContext(Token);
+   const { gToken, setToken } = useContext(Token);
 
    async function signinUser() {
       const userdata = {
@@ -24,19 +24,24 @@ const Login = () => {
             'Content-Type': 'application/json',
          },
          body: JSON.stringify(userdata),
-      })
-         .then((resp) => resp.json())
-         .then((token) => {
-            if (token.status > 200) {
-               setError('Wrong password or email');
-               document.querySelector('.error').classList.add('active');
-            } else {
-               // console.log(token);
-               sessionStorage.setItem('token', JSON.stringify(token));
-               const tokenString = sessionStorage.getItem('token');
-               if (tokenString || gtoken) setToken(true);
-            }
-         });
+      }).then((resp) => {
+         if (resp.status > 200) {
+            setError('Wrong password or email');
+            document.querySelector('.error').classList.add('active');
+         } else {
+            resp.json().then((token) => {
+               if (token) {
+                  sessionStorage.setItem('token', JSON.stringify(token));
+                  const tokenString = sessionStorage.getItem('token');
+                  if (tokenString) setToken(true);
+               }
+            });
+         }
+      });
+   }
+
+   if (gToken) {
+      return <Navigate to='/acc' />;
    }
 
    return (
@@ -78,9 +83,9 @@ const Login = () => {
                   <input type={'submit'} className='button' value={'Login'} />
 
                   <div className='divider'>or</div>
-                  <Link to='/signup' className='button button-google'>
+                  <a href='/signup' className='button button-google'>
                      Create Account
-                  </Link>
+                  </a>
                </div>
             </form>
          </div>

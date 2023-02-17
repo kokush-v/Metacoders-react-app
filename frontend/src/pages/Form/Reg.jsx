@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import React, { useRef, useState, useContext } from 'react';
+import { Link, Navigate } from 'react-router-dom';
+import { Token } from '../../context/Context';
 import './Form.scss';
 
 const Reg = () => {
@@ -9,6 +9,7 @@ const Reg = () => {
    const passwordRef = useRef(null);
 
    const [error, setError] = useState('');
+   const { gToken, setToken } = useContext(Token);
 
    async function createUser() {
       const userdata = {
@@ -32,6 +33,10 @@ const Reg = () => {
             window.location.replace('http://localhost:3000/login');
          }
       });
+   }
+
+   if (gToken) {
+      return <Navigate to='/acc' />;
    }
 
    return (

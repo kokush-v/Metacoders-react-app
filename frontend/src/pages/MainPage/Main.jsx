@@ -12,17 +12,17 @@ import './Main.scss';
 import '../../components/FontAwesome';
 
 const Main = () => {
-   const fetchItem = async () => {
-      await fetch('http://localhost:5000/getip')
-         .then((res) => res.text())
-         .then((res) => {
-            console.log(res);
-         });
-   };
+   // const fetchItem = async () => {
+   //    await fetch('http://localhost:5000/getip')
+   //       .then((res) => res.text())
+   //       .then((res) => {
+   //          console.log(res);
+   //       });
+   // };
 
-   useEffect(() => {
-      fetchItem();
-   }, []);
+   // useEffect(() => {
+   //    fetchItem();
+   // }, []);
 
    return (
       <div className='App'>

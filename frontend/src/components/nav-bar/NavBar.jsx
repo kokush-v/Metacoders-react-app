@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { Token } from '../../context/Context';
 import './NavBar.scss';
-import { Link } from 'react-router-dom';
+import { Navigate, Link, useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
    const [burger, setBurger] = useState(false);
+   const { gToken, setToken } = useContext(Token);
+   const navigate = useNavigate();
 
    function BurgerToggle() {
       burger ? setBurger(false) : setBurger(true);
@@ -34,11 +36,15 @@ const NavBar = () => {
                   <h4>
                      <Link to='/login'>Login</Link>
                   </h4>
-                  <Link to='/login'>
+                  <div
+                     onClick={(e) => {
+                        navigate(gToken ? '/acc' : '/login', { replace: true });
+                     }}
+                  >
                      <div className='login'>
                         <FontAwesomeIcon icon={'user'} />
                      </div>
-                  </Link>
+                  </div>
                </div>
             </div>
             <div
