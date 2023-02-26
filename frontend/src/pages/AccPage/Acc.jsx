@@ -29,7 +29,6 @@ const AccPage = () => {
 
          setOnline(data.online);
          setMessages(data.messages);
-         // console.log(online);
       });
 
       socket.on('log_out', (data) => {
@@ -78,6 +77,7 @@ const AccPage = () => {
          <h1>Hello, {User.user.name} </h1>
          <form className='messanger' autoComplete='off' id='form'>
             <div className='info'>
+               <div className='modals'></div>
                <div className='online'>
                   <h3>User online</h3>
                   {userTable.map((usr, i) => {
